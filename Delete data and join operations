@@ -1,0 +1,24 @@
+-- Delete a user from Users table
+DELETE FROM Users WHERE UserID = 1;
+
+-- Delete a product from Products table
+DELETE FROM Products WHERE ProductID = 101;
+
+
+-- Assuming you have an Orders table and you want to join it with Users
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    UserID INT,
+    OrderDate DATE,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+-- Insert some data into Orders
+INSERT INTO Orders (OrderID, UserID, OrderDate)
+VALUES (500, 1, '2023-04-01');
+
+-- Query to find all orders made by a user
+SELECT U.FirstName, U.LastName, O.OrderDate
+FROM Users U
+JOIN Orders O ON U.UserID = O.UserID
+WHERE U.UserID = 1;

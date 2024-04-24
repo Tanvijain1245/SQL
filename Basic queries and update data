@@ -1,0 +1,13 @@
+-- Insert data into the Users table
+INSERT INTO Users (UserID, FirstName, LastName, Email, SignUpDate)
+VALUES (1, 'John', 'Doe', 'john.doe@example.com', '2023-01-01');
+
+-- Insert data into the Products table
+INSERT INTO Products (ProductID, ProductName, Price)
+VALUES (101, 'Laptop', 1200.00);
+
+-- Update user email
+UPDATE Users SET Email = 'john.newemail@example.com' WHERE UserID = 1;
+
+-- Increase price of all products by 10%
+UPDATE Products SET Price = Price * 1.10;
